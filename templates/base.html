@@ -112,14 +112,21 @@
               {% set left='Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a>' %}
             {% endif %}
 
+            {% if BEIAN|default(False) %}
+              {% set beian=BEIAN %}
+            {% else %}
+              {% set beian='' %}
+            {% endif %}
+
             {% if SHOW_CREDITS and SHOW_CREDITS.right %}
               {% set right=SHOW_CREDITS.right %}
             {% else %}
               {% set right='Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a>' %}
             {% endif %}
 
-          <span class="credits-theme">{{left}}</span>
-          <span class="credits-software">{{right}}</span>
+          <span>{{left}}</span>
+          <span>{{right}}</span>
+          <span><a href="http://www.miit.gov.cn" rel="nofollow">{{beian}}</a></span>
           {% endif %}
         </section>
       </div>
